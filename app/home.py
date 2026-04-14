@@ -17,6 +17,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_HPO_FILE = REPO_ROOT / "assets" / "ontology" / "hpo_terms_expanded_with_ancestors.csv"
 DEFAULT_ANCESTORS_FILE = REPO_ROOT / "assets" / "ontology" / "hpo_ancestors_map.tsv"
 
+# These should match the levels expected by the training preprocessing.
+GENDER_OPTIONS = ["Female", "Male"]
+# ETHNICITY_OPTIONS = ["2", "4", "0", "3", "5", "6", "8", "10", "12", "13", "14"]
+ETHNICITY_OPTIONS = [
+    "Ethnicity group 2",
+    "Ethnicity group 4",
+    "Other ethnicity",
+]
+
 
 def load_hpo_terms(file_path: Path) -> pd.DataFrame:
     """Load the HPO catalog and prepare user-facing labels for the UI."""
@@ -89,7 +98,7 @@ def load_ancestors_map(file_path: Path) -> dict[str, set[str]]:
 
 
 def initialize_session_state() -> None:
-    """Initialize session state used to store the selected and active HPO terms."""
+    """Initialize session state used to store clinical and HPO inputs."""
     if "selected_hpo_ids" not in st.session_state:
         st.session_state.selected_hpo_ids = []
 
@@ -104,6 +113,18 @@ def initialize_session_state() -> None:
 
     if "ancestors_map" not in st.session_state:
         st.session_state.ancestors_map = {}
+
+    if "age_value" not in st.session_state:
+        st.session_state.age_value = None
+
+    if "fever_length_value" not in st.session_state:
+        st.session_state.fever_length_value = None
+
+    if "gender_value" not in st.session_state:
+        st.session_state.gender_value = None
+
+    if "ethnicity_value" not in st.session_state:
+        st.session_state.ethnicity_value = None
 
 
 def expand_with_ancestors(
@@ -126,6 +147,7 @@ def add_hpo(selected_label: str, label_to_id: dict[str, str]) -> None:
         st.warning(
             "This HPO term is already active in the current profile, either as a selected term or as an inferred ancestor."
         )
+        st.session_state.selected_hpo_label = None
         return
 
     if selected_id not in st.session_state.selected_hpo_ids:
@@ -152,10 +174,15 @@ def remove_last_hpo() -> None:
 
 
 def reset_all() -> None:
-    """Clear the full HPO selection and reset the active profile."""
+    """Clear the full clinical and HPO input state."""
     st.session_state.selected_hpo_ids = []
+    st.session_state.selected_hpo_label = None
     st.session_state.active_hpo_ids = set()
     st.session_state.prediction_requested = False
+    st.session_state.age_value = 0.0
+    st.session_state.fever_length_value = 0.0
+    st.session_state.gender_value = GENDER_OPTIONS[0]
+    st.session_state.ethnicity_value = ETHNICITY_OPTIONS[0]
 
 
 def request_prediction() -> None:
@@ -180,6 +207,15 @@ def render_selected_terms(selected_ids: list[str], hpo_df: pd.DataFrame) -> None
         st.write(f"- **{row['hpo_id']}** - {row['hpo_name']}")
 
 
+def render_clinical_summary() -> None:
+    """Render the current clinical input summary."""
+    st.markdown("### Clinical input")
+    st.write(f"- **Age:** {st.session_state.age_value}")
+    st.write(f"- **Fever length (days):** {st.session_state.fever_length_value}")
+    st.write(f"- **Gender:** {st.session_state.gender_value}")
+    st.write(f"- **Ethnicity:** {st.session_state.ethnicity_value}")
+
+
 def render_prediction_placeholder(selected_ids: list[str]) -> None:
     """Temporary placeholder for the future model prediction output."""
     st.markdown("### Prediction output")
@@ -189,6 +225,20 @@ def render_prediction_placeholder(selected_ids: list[str]) -> None:
         return
 
     st.success("Input captured correctly. Model inference will be connected in the next step.")
+
+    st.write("Current clinical input:")
+    st.code(
+        "\n".join(
+            [
+                f"age = {st.session_state.age_value}",
+                f"fever_length = {st.session_state.fever_length_value}",
+                f"gender = {st.session_state.gender_value}",
+                f"ethnicity = {st.session_state.ethnicity_value}",
+            ]
+        ),
+        language="text",
+    )
+
     st.write("Current user-selected HPO input:")
     st.code("\n".join(selected_ids), language="text")
 
@@ -233,6 +283,63 @@ def main() -> None:
     label_to_id = dict(zip(hpo_df["display_label"], hpo_df["hpo_id"]))
     available_labels = hpo_df["display_label"].tolist()
 
+    clinical_input_complete = all(
+        value is not None
+        for value in [
+            st.session_state.age_value,
+            st.session_state.fever_length_value,
+            st.session_state.gender_value,
+            st.session_state.ethnicity_value,
+        ]
+    )
+
+    prediction_ready = (
+        clinical_input_complete
+        and bool(st.session_state.selected_hpo_ids)
+    )
+
+    st.markdown("### Clinical variables")
+
+    clinical_col1, clinical_col2 = st.columns(2)
+
+    with clinical_col1:
+        st.number_input(
+            "Age",
+            min_value=0.0,
+            step=0.1,
+            value=st.session_state.age_value,
+            placeholder="Enter age...",
+            key="age_value",
+        )
+
+        st.selectbox(
+            "Gender",
+            options=GENDER_OPTIONS,
+            index=None,
+            placeholder="Select gender...",
+            key="gender_value",
+        )
+
+    with clinical_col2:
+        st.number_input(
+            "Fever length (days)",
+            min_value=0.0,
+            step=0.1,
+            value=st.session_state.fever_length_value,
+            placeholder="Enter fever length...",
+            key="fever_length_value",
+        )
+
+        st.selectbox(
+            "Ethnicity",
+            options=ETHNICITY_OPTIONS,
+            index=None,
+            placeholder="Select ethnicity group...",
+            key="ethnicity_value",
+        )
+
+    st.divider()
+
     st.markdown("### Insert HPO terms")
     selected_label = st.selectbox(
         "Search and select one HPO term at a time",
@@ -259,6 +366,7 @@ def main() -> None:
             type="primary",
             use_container_width=True,
             on_click=request_prediction,
+            disabled=not prediction_ready,
         )
 
     with undo_col:
@@ -273,10 +381,16 @@ def main() -> None:
         st.button(
             "Reset all",
             use_container_width=True,
-            disabled=not st.session_state.selected_hpo_ids,
+            disabled=not st.session_state.selected_hpo_ids
+            and st.session_state.age_value == 0.0
+            and st.session_state.fever_length_value == 0.0
+            and st.session_state.gender_value == GENDER_OPTIONS[0]
+            and st.session_state.ethnicity_value == ETHNICITY_OPTIONS[0],
             on_click=reset_all,
         )
 
+    st.divider()
+    render_clinical_summary()
     st.divider()
     render_selected_terms(st.session_state.selected_hpo_ids, hpo_df)
 
