@@ -1,0 +1,172 @@
+HPO_CODE,field_name,Symptom,hpo_name
+HP:0000951,muco_cutaneous,CLINICAL_SUMMARY_muco_cutaneous,Abnormality of the skin
+HP:0033127,musculoskeletal,CLINICAL_SUMMARY_musculoskeletal,Abnormality of the musculoskeletal system
+HP:0000478,ocular,CLINICAL_SUMMARY_ocular,Abnormality of the eye
+HP:0011024,gastro,CLINICAL_SUMMARY_gastro,Abnormality of the gastrointestinal tract
+HP:0100763,lymphoid,CLINICAL_SUMMARY_lymphoid,Abnormality of the lymphatic system
+HP:0001626,cardio,CLINICAL_SUMMARY_cardio,Abnormality of the cardiovascular system
+HP:0000707,neuro,CLINICAL_SUMMARY_neuro,Abnormality of the nervous system
+HP:0000119,genito,CLINICAL_SUMMARY_genito,Abnormality of the genitourinary system
+HP:0025142,constitutional,CLINICAL_SUMMARY_constitutional,Constitutional symptom
+HP:0001871,hemato,CLINICAL_SUMMARY_hemato,Abnormality of blood and blood-forming tissues
+HP:0100749,Ch_Fr,SIGNS_CARDIO_Ch_Fr,Chest pain
+HP:0002094,dys,SIGNS_CARDIO_dys,Dyspnea
+HP:0001701,Pe_Fr,SIGNS_CARDIO_Pe_Fr,Pericarditis
+HP:0002102,Pl_Fr,SIGNS_CARDIO_Pl_Fr,Pleuritis
+HP:0011949,Pn_Fr,SIGNS_CARDIO_Pn_Fr,Acute infectious pneumonia
+HP:0006530,int_lun_dis,SIGNS_CARDIO_int_lun_dis,Abnormal pulmonary interstitial morphology
+HP:0034315,Cou_Fr,SIGNS_CARDIO_Cou_Fr,Chronic cough
+HP:0002105,He_Fr,SIGNS_CARDIO_He_Fr,Hemoptysis
+HP:0004936,Ven_Fr,SIGNS_CARDIO_Ven_Fr,Venous thrombosis
+HP:0004420,Art_Fr,SIGNS_CARDIO_Art_Fr,Arterial thrombosis
+HP:0005310,Vascul,SIGNS_CARDIO_Vascul,Large vessel vasculitis
+HP:0005310,lar_ves_vas,SIGNS_CARDIO_lar_ves_vas,Large vessel vasculitis
+HP:0011944,sma_ves_vas,SIGNS_CARDIO_sma_ves_vas,Small vessel vasculitis
+HP:0001658,Myocar,SIGNS_CARDIO_Myocar,Myocardial infarction
+HP:0031319,car_hyp,SIGNS_CARDIO_car_hyp,Cardiomyocyte hypertrophy
+HP:0100545,Aneur,SIGNS_CARDIO_Aneur,Arterial stenosis
+HP:0001638,Cardi,SIGNS_CARDIO_Cardi,Cardiomyopathy
+HP:0002206,PulmFibro,SIGNS_CARDIO_PulmFibro,Pulmonary fibrosis
+HP:0033834,Mal_Fr,SIGNS_CONSTITUTIONAL_Mal_Fr,Malaise
+HP:0000712,Moo_Fr,SIGNS_CONSTITUTIONAL_Moo_Fr,Emotional lability
+HP:0001824,Weight,SIGNS_CONSTITUTIONAL_Weight,Weight loss
+HP:0025204,Trigg,SIGNS_EPISODES_Trigg,Triggered by
+HP:0025206,Cold,SIGNS_EPISODES_Cold,Triggered by cold
+HP:0025226,Stress,SIGNS_EPISODES_Stress,Triggered by stress
+HP:0025219,Vaccin,SIGNS_EPISODES_Vaccin,Triggered by vaccination
+HP:0033184,Infect,SIGNS_EPISODES_Infect,Triggered by infection
+HP:0025377,Excercise,SIGNS_EPISODES_Excercise,Triggered by exertion
+HP:0031135,Trauma,SIGNS_EPISODES_Trauma,Triggered by physical trauma
+HP:0033793,Food,SIGNS_EPISODES_Food,Triggered by food ingestion
+HP:0025220,Menstr,SIGNS_EPISODES_Menstr,Triggered by menstruation
+HP:0002013,Vom_Fr,SIGNS_GASTRO_Vom_Fr,Vomiting
+HP:0002027,Abd_Fr,SIGNS_GASTRO_Abd_Fr,Abdominal pain
+HP:0002019,Con_Fr,SIGNS_GASTRO_Con_Fr,Constipation
+HP:0002014,Diar_Fr,SIGNS_GASTRO_Diar_Fr,Diarrhea
+HP:0034274,Gastr_Fr,SIGNS_GASTRO_Gastr_Fr,Gastrointestinal ulcer
+HP:0012390,Ana_Fr,SIGNS_GASTRO_Ana_Fr,Anal fissure
+HP:0002239,GI_Fr,SIGNS_GASTRO_GI_Fr,Gastrointestinal hemorrhage
+HP:0002586,Ase_Fr,SIGNS_GASTRO_Ase_Fr,Peritonitis
+HP:0012115,hep,SIGNS_GASTRO_hep,Hepatitis
+HP:0005263,gas,SIGNS_GASTRO_gas,Gastritis
+HP:0031368,Gut,SIGNS_GASTRO_Gut,Intestinal perforation
+HP:0033134,Perit,SIGNS_GASTRO_Perit,Abdominal adhesions
+HP:0005214,Occl,SIGNS_GASTRO_Occl,Intestinal obstruction
+HP:0500006,Ure_Fr,SIGNS_GENITO_Ure_Fr,Urethritis
+HP:0033839,Gon_Fr,SIGNS_GENITO_Gon_Fr,Testicular pain
+HP:0000031,epi,SIGNS_GENITO_epi,Epididymitis
+HP:0000822,ess_hyp,SIGNS_GENITO_ess_hyp,Hypertension
+HP:0000822,HypTen,SIGNS_OTHER_HypTen,Hypertension
+HP:0100817,ren_hyp,SIGNS_GENITO_ren_hyp,Renovascular hypertension
+HP:0000099,gln,SIGNS_GENITO_gln,Glomerulonephritis
+HP:0001876,pan,SIGNS_HEMATOLOGICAL_pan,Pancytopenia
+HP:0001882,leu,SIGNS_HEMATOLOGICAL_leu,Leukopenia
+HP:0001873,thr,SIGNS_HEMATOLOGICAL_thr,Thrombocytopenia
+HP:0001915,apl_ane,SIGNS_HEMATOLOGICAL_apl_ane,Aplastic anemia
+HP:0001875,neu,SIGNS_HEMATOLOGICAL_neu,Neutropenia
+HP:0001888,lym,SIGNS_HEMATOLOGICAL_lym,Lymphopenia
+HP:0004313,hyp,SIGNS_HEMATOLOGICAL_hyp,Decreased circulating antibody concentration
+HP:0002719,rec_inf,SIGNS_HEMATOLOGICAL_rec_inf,Recurrent infections
+HP:0032169,sev_inf,SIGNS_HEMATOLOGICAL_sev_inf,Severe infection
+HP:0032169,Cultur,SIGNS_OTHER_Cultur,Severe infection
+HP:0008940,Gen_Fr,SIGNS_LYMPHOID_Gen_Fr,Generalized lymphadenopathy
+HP:0025289,Enl_Fr,SIGNS_LYMPHOID_Enl_Fr,Cervical lymphadenopathy
+HP:0002240,Hep_Fr,SIGNS_LYMPHOID_Hep_Fr,Hepatomegaly
+HP:0001744,Spl_Fr,SIGNS_LYMPHOID_Spl_Fr,Splenomegaly
+HP:0034336,spl_inf,SIGNS_LYMPHOID_spl_inf,Splenic infarction
+HP:0011850,Par_Fr,SIGNS_LYMPHOID_Par_Fr,Parotitis
+HP:0000155,Aph_Fr,SIGNS_MUCO_CUTANEOUS_Aph_Fr,Oral ulcer
+HP:0034035,Ex_Fr,SIGNS_MUCO_CUTANEOUS_Ex_Fr,Pharyngeal exudate
+HP:0025439,Ery_Fr,SIGNS_MUCO_CUTANEOUS_Ery_Fr,Pharyngitis
+HP:0040186,Mac_Fr,SIGNS_MUCO_CUTANEOUS_Mac_Fr,Maculopapular exanthema
+HP:0001025,Urt_Fr,SIGNS_MUCO_CUTANEOUS_Urt_Fr,Urticaria
+HP:0033622,Mig_Fr,SIGNS_MUCO_CUTANEOUS_Mig_Fr,Migratory erythematous plaque
+HP:0031363,Pal_Fr,SIGNS_MUCO_CUTANEOUS_Pal_Fr,Palpable purpura
+HP:0001055,ery_lik_ery,SIGNS_MUCO_CUTANEOUS_ery_lik_ery,Erysipelas
+HP:0025084,Pse_Fr,SIGNS_MUCO_CUTANEOUS_Pse_Fr,Folliculitis
+HP:0033605,Pa_Fr,SIGNS_MUCO_CUTANEOUS_Pa_Fr,Pustular rash
+HP:0001061,Ac_Fr,SIGNS_MUCO_CUTANEOUS_Ac_Fr,Acne
+HP:0003765,Ps_Fr,SIGNS_MUCO_CUTANEOUS_Ps_Fr,Psoriasiform dermatitis
+HP:0003249,Ul_Fr,SIGNS_MUCO_CUTANEOUS_Ul_Fr,Genital ulcers
+HP:0025452,Py_Fr,SIGNS_MUCO_CUTANEOUS_Py_Fr,Pyoderma gangrenosum
+HP:0100847,pal_pla_pus,SIGNS_MUCO_CUTANEOUS_pal_pla_pus,Palmoplantar pustulosis
+HP:0012219,Er_Fr,SIGNS_MUCO_CUTANEOUS_Er_Fr,Erythema nodosum
+HP:0012490,OP_Fr,SIGNS_MUCO_CUTANEOUS_OP_Fr,Panniculitis
+HP:0008064,Ta_Fr,SIGNS_MUCO_CUTANEOUS_Ta_Fr,Ichthyosis
+HP:0025532,Po_Fr,SIGNS_MUCO_CUTANEOUS_Po_Fr,Positive pathergy test
+HP:0025474,EryPlaque_Fr,SIGNS_MUCO_CUTANEOUS_EryPlaque_Fr,Erythematous plaque
+HP:0009125,Lipo_Fr,SIGNS_MUCO_CUTANEOUS_Lipo_Fr,Lipodystrophy
+HP:0100540,EyeSw_Fr,SIGNS_MUCO_CUTANEOUS_EyeSw_Fr,Palpebral edema
+HP:0033402,dig_isc_non_gan,SIGNS_MUCO_CUTANEOUS_dig_isc_non_gan,Digital ischemia
+HP:0200042,cut_ulc,SIGNS_MUCO_CUTANEOUS_cut_ulc,Skin ulcer
+HP:0001596,alo,SIGNS_MUCO_CUTANEOUS_alo,Alopecia
+HP:0033260,liv_rac,SIGNS_MUCO_CUTANEOUS_liv_rac,Livedo racemosa
+HP:0000964,ecz,SIGNS_MUCO_CUTANEOUS_ecz,Eczematoid dermatitis
+HP:0001482,sub_nod,SIGNS_MUCO_CUTANEOUS_sub_nod,Subcutaneous nodule
+HP:0000992,pho,SIGNS_MUCO_CUTANEOUS_pho,Cutaneous photosensitivity
+HP:0030880,ray_phe,SIGNS_MUCO_CUTANEOUS_ray_phe,Raynaud phenomenon
+HP:0009710,chi,SIGNS_MUCO_CUTANEOUS_chi,Chilblains
+HP:0002829,Art_Fr,SIGNS_MUSCULOSKELETAL_Art_Fr,Arthralgia
+HP:0003326,Mya_Fr,SIGNS_MUSCULOSKELETAL_Mya_Fr,Myalgia
+HP:0001324,mus_wea,SIGNS_MUSCULOSKELETAL_mus_wea,Muscle weakness
+HP:0100614,Myo_Fr,SIGNS_MUSCULOSKELETAL_Myo_Fr,Myositis
+HP:0100537,Fas_Fr,SIGNS_MUSCULOSKELETAL_Fas_Fr,Fasciitis
+HP:0002653,Bon_Fr,SIGNS_MUSCULOSKELETAL_Bon_Fr,Bone pain
+HP:0001369,Mon_Fr,SIGNS_MUSCULOSKELETAL_Mon_Fr,Arthritis
+HP:0040313,Oli_Fr,SIGNS_MUSCULOSKELETAL_Oli_Fr,Oligoarthritis
+HP:0005764,Pol_Fr,SIGNS_MUSCULOSKELETAL_Pol_Fr,Polyarticular arthritis
+HP:0025230,Te_Fr,SIGNS_MUSCULOSKELETAL_Te_Fr,Tendonitis
+HP:0031090,Dactylitis_Fr,SIGNS_MUSCULOSKELETAL_Dactylitis_Fr,Finger dactylitis
+HP:0001371,Flex,SIGNS_MUSCULOSKELETAL_Flex,Flexion contracture
+HP:0003330,Bone,SIGNS_MUSCULOSKELETAL_Bone,Abnormal bone structure
+HP:0033308,Pat,SIGNS_MUSCULOSKELETAL_Pat,Patellar overgrowth
+HP:0002007,Front,SIGNS_MUSCULOSKELETAL_Front,Frontal bossing
+HP:0001217,Club,SIGNS_MUSCULOSKELETAL_Club,Clubbing
+HP:0012385,Camt,SIGNS_MUSCULOSKELETAL_Camt,Camptodactyly
+HP:0002814,BonDe,SIGNS_MUSCULOSKELETAL_BonDe,Abnormality of the lower limb
+HP:0002797,Ost,SIGNS_MUSCULOSKELETAL_Ost,Osteolysis
+HP:0100774,Hyper,SIGNS_MUSCULOSKELETAL_Hyper,Hyperostosis
+HP:0000939,Osteo,SIGNS_MUSCULOSKELETAL_Osteo,Osteoporosis
+HP:0003202,MuscAtrop,SIGNS_MUSCULOSKELETAL_MuscAtrop,Skeletal muscle atrophy
+HP:0002315,HAn_Fr,SIGNS_NEURO_HAn_Fr,Headache
+HP:0001287,As_Fr,SIGNS_NEURO_As_Fr,Meningitis
+HP:0100653,Op_Fr,SIGNS_NEURO_Op_Fr,Optic neuritis
+HP:0001250,Sei_Fr,SIGNS_NEURO_Sei_Fr,Seizure
+HP:0002321,Ver_Fr,SIGNS_NEURO_Ver_Fr,Vertigo
+HP:0001251,ata,SIGNS_NEURO_ata,Ataxia
+HP:0002326,tra_isc_att,SIGNS_NEURO_tra_isc_att,Transient ischemic attack
+HP:0001297,str,SIGNS_NEURO_str,Stroke
+HP:0002170,int_hem,SIGNS_NEURO_int_hem,Intracranial hemorrhage
+HP:0000238,Hydro,SIGNS_NEURO_Hydro,Hydrocephalus
+HP:0000407,Neuro,SIGNS_NEURO_Neuro,Sensorineural hearing impairment
+HP:0002445,par,SIGNS_NEURO_par,Tetraplegia
+HP:0001317,Cereb,SIGNS_NEURO_Cereb,Abnormal cerebellum morphology
+HP:0001249,Ment,SIGNS_NEURO_Ment,Intellectual disability
+HP:0100539,Per_Fr,SIGNS_OCULAR_Per_Fr,Periorbital edema
+HP:0000509,Con_Fr,SIGNS_OCULAR_Con_Fr,Conjunctivitis
+HP:0012122,UvA_Fr,SIGNS_OCULAR_UvA_Fr,Anterior uveitis
+HP:0012123,UvP_Fr,SIGNS_OCULAR_UvP_Fr,Posterior uveitis
+HP:0000491,Ker_Fr,SIGNS_OCULAR_Ker_Fr,Keratitis
+HP:0100532,Scl_Fr,SIGNS_OCULAR_Scl_Fr,Scleritis
+HP:0100534,Epi_Fr,SIGNS_OCULAR_Epi_Fr,Episcleritis
+HP:0000620,Lac_Fr,SIGNS_OCULAR_Lac_Fr,Dacryocystitis
+HP:0025188,Re_Fr,SIGNS_OCULAR_Re_Fr,Retinal vasculitis
+HP:0000518,Catar,SIGNS_OCULAR_Catar,Cataract
+HP:0000501,Glauc,SIGNS_OCULAR_Glauc,Glaucoma
+HP:0000585,Band,SIGNS_OCULAR_Band,Band keratopathy
+HP:0000505,Impa,SIGNS_OCULAR_Impa,Visual impairment
+HP:0000618,Blind,SIGNS_OCULAR_Blind,Blindness
+HP:0012156,Macrop,SIGNS_OTHER_Macrop,Hemophagocytosis
+HP:0000789,Infert,SIGNS_OTHER_Infert,Infertility
+HP:0002664,Tumor,SIGNS_OTHER_Tumor,Neoplasm
+HP:0011420,Death,SIGNS_OTHER_Death,Age of death
+HP:0001508,Fail_thrive,SIGNS_OTHER_Fail_thrive,Failure to thrive
+HP:0000648,Op_Fr_Optic,SIGNS_OCULAR_Op_Fr_Optic,Optic atrophy
+HP:0001085,Pa_Fr_pap,SIGNS_OCULAR_Pa_Fr_pap,Papilledema
+HP:0001945,Fever,SIGNS_EPISODES_CONSTITUIONAL_Fever,Fever
+HP:0006824,Cra_Fr_Cran,SIGNS_NEURO_Cra_Fr_Cran,Cranial nerve paralysis
+HP:0009830,Perip_per_neu,SIGNS_NEURO_Perip_per_neu,Peripheral neuropathy
+HP:0011034,Amylo_GASTRO_int_amy,SIGNS_OTHER_Amylo_GASTRO_int_amy,Amyloidosis
+HP:0011134,LowFever,SIGNS_CONSTITUTIONAL_LowFev_EPISODES_LowFever,Low-grade fever
+HP:0012378,Fatigue,SIGNS_CONSTITUTIONAL_Fat_Fr_EPISODES_Fatigue,Fatigue
+HP:0025143,Sen_Fr,SIGNS_EPISODES_Chills_CONSTITUTIONAL_Sen_Fr,Chills

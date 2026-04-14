@@ -1,0 +1,433 @@
+HPO_CODE,hpo_name,term_source,field_name,Symptom
+HP:0011458,Abdominal symptom,ancestor,,
+HP:0005372,Abnormal B cell physiology,ancestor,,
+HP:0001438,Abnormal abdomen morphology,ancestor,,
+HP:0009124,Abnormal adipose tissue morphology,ancestor,,
+HP:0025766,Abnormal affect,ancestor,,
+HP:0020007,Abnormal affect regulation,ancestor,,
+HP:0004328,Abnormal anterior eye segment morphology,ancestor,,
+HP:0034915,Abnormal anus morphology,ancestor,,
+HP:0011844,Abnormal appendicular skeleton morphology,ancestor,,
+HP:0025323,Abnormal arterial physiology,ancestor,,
+HP:0009121,Abnormal axial skeleton morphology,ancestor,,
+HP:0001892,Abnormal bleeding,ancestor,,
+HP:0033353,Abnormal blood vessel morphology,ancestor,,
+HP:0005561,Abnormal bone marrow cell morphology,ancestor,,
+HP:0011849,Abnormal bone ossification,ancestor,,
+HP:0012443,Abnormal brain morphology,ancestor,,
+HP:0002683,Abnormal calvaria morphology,ancestor,,
+HP:0031331,Abnormal cardiomyocyte morphology,ancestor,,
+HP:0030680,Abnormal cardiovascular system morphology,ancestor,,
+HP:0011025,Abnormal cardiovascular system physiology,ancestor,,
+HP:0025461,Abnormal cell morphology,ancestor,,
+HP:0010987,Abnormal cellular immune system morphology,ancestor,,
+HP:0025354,Abnormal cellular phenotype,ancestor,,
+HP:0011017,Abnormal cellular physiology,ancestor,,
+HP:0011442,Abnormal central motor function,ancestor,,
+HP:0100659,Abnormal cerebral vascular morphology,ancestor,,
+HP:0002118,Abnormal cerebral ventricle morphology,ancestor,,
+HP:0002921,Abnormal cerebrospinal fluid morphology,ancestor,,
+HP:0010701,Abnormal circulating immunoglobulin concentration,ancestor,,
+HP:0000502,Abnormal conjunctiva morphology,ancestor,,
+HP:0000481,Abnormal cornea morphology,ancestor,,
+HP:0011495,Abnormal corneal epithelium morphology,ancestor,,
+HP:0011492,Abnormal corneal stroma morphology,ancestor,,
+HP:0031910,Abnormal cranial nerve physiology,ancestor,,
+HP:0025033,Abnormal digestive system morphology,ancestor,,
+HP:0011297,Abnormal digit morphology,ancestor,,
+HP:0031704,Abnormal ear physiology,ancestor,,
+HP:0009714,Abnormal epididymis morphology,ancestor,,
+HP:0012372,Abnormal eye morphology,ancestor,,
+HP:0012373,Abnormal eye physiology,ancestor,,
+HP:0000492,Abnormal eyelid morphology,ancestor,,
+HP:0100536,Abnormal fascia morphology,ancestor,,
+HP:0001167,Abnormal finger morphology,ancestor,,
+HP:0000290,Abnormal forehead morphology,ancestor,,
+HP:0430000,Abnormal frontal bone morphology,ancestor,,
+HP:0001098,Abnormal fundus morphology,ancestor,,
+HP:0004295,Abnormal gastric mucosa morphology,ancestor,,
+HP:0012718,Abnormal gastrointestinal tract morphology,ancestor,,
+HP:0032309,Abnormal granulocyte count,ancestor,,
+HP:0001911,Abnormal granulocyte morphology,ancestor,,
+HP:0001595,Abnormal hair morphology,ancestor,,
+HP:0011362,Abnormal hair quantity,ancestor,,
+HP:0001627,Abnormal heart morphology,ancestor,,
+HP:0011282,Abnormal hindbrain morphology,ancestor,,
+HP:0012337,Abnormal homeostasis,ancestor,,
+HP:0032251,Abnormal immune system morphology,ancestor,,
+HP:0012647,Abnormal inflammatory response,ancestor,,
+HP:0000812,Abnormal internal genitalia,ancestor,,
+HP:0002242,Abnormal intestine morphology,ancestor,,
+HP:0001367,Abnormal joint morphology,ancestor,,
+HP:0034430,Abnormal joint physiology,ancestor,,
+HP:0034669,Abnormal knee morphology,ancestor,,
+HP:0000517,Abnormal lens morphology,ancestor,,
+HP:0011893,Abnormal leukocyte count,ancestor,,
+HP:0001881,Abnormal leukocyte morphology,ancestor,,
+HP:0033796,Abnormal leukocyte physiology,ancestor,,
+HP:0002813,Abnormal limb bone morphology,ancestor,,
+HP:0410042,Abnormal liver morphology,ancestor,,
+HP:0002088,Abnormal lung morphology,ancestor,,
+HP:0002733,Abnormal lymph node morphology,ancestor,,
+HP:0040088,Abnormal lymphocyte count,ancestor,,
+HP:0004332,Abnormal lymphocyte morphology,ancestor,,
+HP:0031409,Abnormal lymphocyte physiology,ancestor,,
+HP:0004311,Abnormal macrophage morphology,ancestor,,
+HP:0000022,Abnormal male internal genitalia morphology,ancestor,,
+HP:0011283,Abnormal metencephalon morphology,ancestor,,
+HP:0011804,Abnormal muscle physiology,ancestor,,
+HP:0011843,Abnormal musculoskeletal physiology,ancestor,,
+HP:0010974,Abnormal myeloid leukocyte morphology,ancestor,,
+HP:0001637,Abnormal myocardium morphology,ancestor,,
+HP:0000614,Abnormal nasolacrimal system morphology,ancestor,,
+HP:0012575,Abnormal nephron morphology,ancestor,,
+HP:0012639,Abnormal nervous system morphology,ancestor,,
+HP:0012638,Abnormal nervous system physiology,ancestor,,
+HP:0011992,Abnormal neutrophil morphology,ancestor,,
+HP:0030669,Abnormal ocular adnexa morphology,ancestor,,
+HP:0012795,Abnormal optic disc morphology,ancestor,,
+HP:0000587,Abnormal optic nerve morphology,ancestor,,
+HP:0000163,Abnormal oral cavity morphology,ancestor,,
+HP:0031816,Abnormal oral morphology,ancestor,,
+HP:0011830,Abnormal oral mucosa morphology,ancestor,,
+HP:0000197,Abnormal parotid gland morphology,ancestor,,
+HP:0003045,Abnormal patella morphology,ancestor,,
+HP:0002793,Abnormal pattern of respiration,ancestor,,
+HP:0001697,Abnormal pericardium morphology,ancestor,,
+HP:0032120,Abnormal peripheral nervous system physiology,ancestor,,
+HP:0002585,Abnormal peritoneum morphology,ancestor,,
+HP:0033151,Abnormal pharynx morphology,ancestor,,
+HP:0011873,Abnormal platelet count,ancestor,,
+HP:0011875,Abnormal platelet morphology,ancestor,,
+HP:0002103,Abnormal pleura morphology,ancestor,,
+HP:0004329,Abnormal posterior eye segment morphology,ancestor,,
+HP:0031263,Abnormal renal corpuscle morphology,ancestor,,
+HP:0011035,Abnormal renal cortex morphology,ancestor,,
+HP:0000095,Abnormal renal glomerulus morphology,ancestor,,
+HP:0012210,Abnormal renal morphology,ancestor,,
+HP:0012211,Abnormal renal physiology,ancestor,,
+HP:0012243,Abnormal reproductive system morphology,ancestor,,
+HP:0012252,Abnormal respiratory system morphology,ancestor,,
+HP:0002795,Abnormal respiratory system physiology,ancestor,,
+HP:0000479,Abnormal retinal morphology,ancestor,,
+HP:0008046,Abnormal retinal vascular morphology,ancestor,,
+HP:0010286,Abnormal salivary gland morphology,ancestor,,
+HP:0000591,Abnormal sclera morphology,ancestor,,
+HP:0011218,Abnormal shape of the frontal region,ancestor,,
+HP:0011842,Abnormal skeletal morphology,ancestor,,
+HP:0011805,Abnormal skeletal muscle morphology,ancestor,,
+HP:0011138,Abnormal skin adnexa morphology,ancestor,,
+HP:0011121,Abnormal skin morphology,ancestor,,
+HP:0000929,Abnormal skull morphology,ancestor,,
+HP:0025408,Abnormal spleen morphology,ancestor,,
+HP:0032016,Abnormal sputum,ancestor,,
+HP:0002577,Abnormal stomach morphology,ancestor,,
+HP:0011004,Abnormal systemic arterial morphology,ancestor,,
+HP:0030972,Abnormal systemic blood pressure,ancestor,,
+HP:0100261,Abnormal tendon morphology,ancestor,,
+HP:0001977,Abnormal thrombosis,ancestor,,
+HP:0011991,Abnormal total neutrophil count,ancestor,,
+HP:0000553,Abnormal uvea morphology,ancestor,,
+HP:0025015,Abnormal vascular morphology,ancestor,,
+HP:0030163,Abnormal vascular physiology,ancestor,,
+HP:0001751,Abnormal vestibular function,ancestor,,
+HP:0011028,Abnormality of blood circulation,ancestor,,
+HP:0004323,Abnormality of body weight,ancestor,,
+HP:0004348,Abnormality of bone mineral density,ancestor,,
+HP:0003549,Abnormality of connective tissue,ancestor,,
+HP:0011443,Abnormality of coordination,ancestor,,
+HP:0025032,Abnormality of digestive system physiology,ancestor,,
+HP:0011799,Abnormality of facial soft tissue,ancestor,,
+HP:0011032,Abnormality of fluid regulation,ancestor,,
+HP:0000152,Abnormality of head or neck,ancestor,,
+HP:0005368,Abnormality of humoral immunity,ancestor,,
+HP:0010978,Abnormality of immune system physiology,ancestor,,
+HP:0011729,Abnormality of joint mobility,ancestor,,
+HP:0040068,Abnormality of limb bone,ancestor,,
+HP:0040064,Abnormality of limbs,ancestor,,
+HP:0100491,Abnormality of lower limb joint,ancestor,,
+HP:0011446,Abnormality of mental function,ancestor,,
+HP:0001939,Abnormality of metabolism/homeostasis,ancestor,,
+HP:0012145,Abnormality of multiple cell lineages in the bone marrow,ancestor,,
+HP:0001874,Abnormality of neutrophils,ancestor,,
+HP:0000080,Abnormality of reproductive system physiology,ancestor,,
+HP:0011122,Abnormality of skin physiology,ancestor,,
+HP:0004370,Abnormality of temperature regulation,ancestor,,
+HP:0002012,Abnormality of the abdominal organs,ancestor,,
+HP:0004378,Abnormality of the anus,ancestor,,
+HP:0025031,Abnormality of the digestive system,ancestor,,
+HP:0000598,Abnormality of the ear,ancestor,,
+HP:0000271,Abnormality of the face,ancestor,,
+HP:0000078,Abnormality of the genital system,ancestor,,
+HP:0001155,Abnormality of the hand,ancestor,,
+HP:0000234,Abnormality of the head,ancestor,,
+HP:0002715,Abnormality of the immune system,ancestor,,
+HP:0001574,Abnormality of the integument,ancestor,,
+HP:0000077,Abnormality of the kidney,ancestor,,
+HP:0002815,Abnormality of the knee,ancestor,,
+HP:0001392,Abnormality of the liver,ancestor,,
+HP:0010936,Abnormality of the lower urinary tract,ancestor,,
+HP:0010461,Abnormality of the male genitalia,ancestor,,
+HP:0000153,Abnormality of the mouth,ancestor,,
+HP:0003011,Abnormality of the musculature,ancestor,,
+HP:0032039,Abnormality of the ocular adnexa,ancestor,,
+HP:0000315,Abnormality of the orbital region,ancestor,,
+HP:0000606,Abnormality of the periorbital region,ancestor,,
+HP:0410008,Abnormality of the peripheral nervous system,ancestor,,
+HP:0000600,Abnormality of the pharynx,ancestor,,
+HP:0002086,Abnormality of the respiratory system,ancestor,,
+HP:0000924,Abnormality of the skeletal system,ancestor,,
+HP:0001743,Abnormality of the spleen,ancestor,,
+HP:0002817,Abnormality of the upper limb,ancestor,,
+HP:0002087,Abnormality of the upper respiratory tract,ancestor,,
+HP:0010935,Abnormality of the upper urinary tract,ancestor,,
+HP:0000795,Abnormality of the urethra,ancestor,,
+HP:0000079,Abnormality of the urinary system,ancestor,,
+HP:0011277,Abnormality of the urinary system physiology,ancestor,,
+HP:0002597,Abnormality of the vasculature,ancestor,,
+HP:0008047,Abnormality of the vasculature of the eye,ancestor,,
+HP:0001872,Abnormality of thrombocytes,ancestor,,
+HP:0000504,Abnormality of vision,ancestor,,
+HP:0033678,Acute coronary syndrome,ancestor,,
+HP:0000001,All,ancestor,,
+HP:0003040,Arthropathy,ancestor,,
+HP:0000708,Atypical behavior,ancestor,,
+HP:0011493,Central opacification of the cornea,ancestor,,
+HP:0002637,Cerebral ischemia,ancestor,,
+HP:0031797,Clinical course,ancestor,,
+HP:0012823,Clinical modifier,ancestor,,
+HP:0007957,Corneal opacity,ancestor,,
+HP:0012735,Cough,ancestor,,
+HP:0004325,Decreased body weight,ancestor,,
+HP:0000144,Decreased fertility,ancestor,,
+HP:0000969,Edema,ancestor,,
+HP:0011368,Epidermal thickening,ancestor,,
+HP:0031446,Erosion of oral mucosa,ancestor,,
+HP:0010783,Erythema,ancestor,,
+HP:4000054,Exanthem,ancestor,,
+HP:0000282,Facial edema,ancestor,,
+HP:0030044,Flexion contracture of digit,ancestor,,
+HP:0012719,Functional abnormality of the gastrointestinal tract,ancestor,,
+HP:0011389,Functional abnormality of the inner ear,ancestor,,
+HP:0004796,Gastrointestinal obstruction,ancestor,,
+HP:0011354,Generalized abnormality of skin,ancestor,,
+HP:0001507,Growth abnormality,ancestor,,
+HP:0000364,Hearing abnormality,ancestor,,
+HP:0000365,Hearing impairment,ancestor,,
+HP:0031466,Impairment in personality functioning,ancestor,,
+HP:0032263,Increased blood pressure,ancestor,,
+HP:0012649,Increased inflammatory response,ancestor,,
+HP:0100533,Inflammatory abnormality of the eye,ancestor,,
+HP:0011123,Inflammatory abnormality of the skin,ancestor,,
+HP:0011029,Internal hemorrhage,ancestor,,
+HP:0034392,Joint contracture,ancestor,,
+HP:0033832,Livedo,ancestor,,
+HP:0011355,Localized skin lesion,ancestor,,
+HP:0002716,Lymphadenopathy,ancestor,,
+HP:0002011,Morphological central nervous system abnormality,ancestor,,
+HP:0040006,Mortality/Aging,ancestor,,
+HP:0002017,Nausea and vomiting,ancestor,,
+HP:0000123,Nephritis,ancestor,,
+HP:0012759,Neurodevelopmental abnormality,ancestor,,
+HP:0033429,Neuroinflammation,ancestor,,
+HP:0007759,Opacification of the corneal stroma,ancestor,,
+HP:0012531,Pain,ancestor,,
+HP:0000118,Phenotypic abnormality,ancestor,,
+HP:0002090,Pneumonia,ancestor,,
+HP:0005195,Polyarticular arthropathy,ancestor,,
+HP:0000979,Purpura,ancestor,,
+HP:0200039,Pustule,ancestor,,
+HP:0025337,Red eye,ancestor,,
+HP:0004349,Reduced bone mineral density,ancestor,,
+HP:0007663,Reduced visual acuity,ancestor,,
+HP:0011356,Regional abnormality of skin,ancestor,,
+HP:0011947,Respiratory tract infection,ancestor,,
+HP:0045073,Serositis,ancestor,,
+HP:0200036,Skin nodule,ancestor,,
+HP:0200035,Skin plaque,ancestor,,
+HP:0000988,Skin rash,ancestor,,
+HP:0001933,Subcutaneous hemorrhage,ancestor,,
+HP:0030182,Tetraplegia/tetraparesis,ancestor,,
+HP:0001072,Thickened skin,ancestor,,
+HP:0033401,Tissue ischemia,ancestor,,
+HP:0011450,Unusual CNS infection,ancestor,,
+HP:0032101,Unusual infection,ancestor,,
+HP:0032158,Unusual infection by anatomical site,ancestor,,
+HP:0002493,Upper motor neuron dysfunction,ancestor,,
+HP:0000554,Uveitis,ancestor,,
+HP:0011276,Vascular skin abnormality,ancestor,,
+HP:0002633,Vasculitis,ancestor,,
+HP:0034784,Vasculitis by anatomical site,ancestor,,
+HP:0003271,Visceromegaly,ancestor,,
+HP:0010549,Weakness due to upper motor neuron dysfunction,ancestor,,
+HP:0033134,Abdominal adhesions,original,Perit,SIGNS_GASTRO_Perit
+HP:0002027,Abdominal pain,original,Abd_Fr,SIGNS_GASTRO_Abd_Fr
+HP:0003330,Abnormal bone structure,original,Bone,SIGNS_MUSCULOSKELETAL_Bone
+HP:0001317,Abnormal cerebellum morphology,original,Cereb,SIGNS_NEURO_Cereb
+HP:0006530,Abnormal pulmonary interstitial morphology,original,int_lun_dis,SIGNS_CARDIO_int_lun_dis
+HP:0001871,Abnormality of blood and blood-forming tissues,original,hemato,CLINICAL_SUMMARY_hemato
+HP:0001626,Abnormality of the cardiovascular system,original,cardio,CLINICAL_SUMMARY_cardio
+HP:0000478,Abnormality of the eye,original,ocular,CLINICAL_SUMMARY_ocular
+HP:0011024,Abnormality of the gastrointestinal tract,original,gastro,CLINICAL_SUMMARY_gastro
+HP:0000119,Abnormality of the genitourinary system,original,genito,CLINICAL_SUMMARY_genito
+HP:0002814,Abnormality of the lower limb,original,BonDe,SIGNS_MUSCULOSKELETAL_BonDe
+HP:0100763,Abnormality of the lymphatic system,original,lymphoid,CLINICAL_SUMMARY_lymphoid
+HP:0033127,Abnormality of the musculoskeletal system,original,musculoskeletal,CLINICAL_SUMMARY_musculoskeletal
+HP:0000707,Abnormality of the nervous system,original,neuro,CLINICAL_SUMMARY_neuro
+HP:0000951,Abnormality of the skin,original,muco_cutaneous,CLINICAL_SUMMARY_muco_cutaneous
+HP:0001061,Acne,original,Ac_Fr,SIGNS_MUCO_CUTANEOUS_Ac_Fr
+HP:0011949,Acute infectious pneumonia,original,Pn_Fr,SIGNS_CARDIO_Pn_Fr
+HP:0011420,Age of death,original,Death,SIGNS_OTHER_Death
+HP:0001596,Alopecia,original,alo,SIGNS_MUCO_CUTANEOUS_alo
+HP:0011034,Amyloid deposition,original,Amylo_GASTRO_int_amy,SIGNS_OTHER_Amylo_GASTRO_int_amy
+HP:0012390,Anal fissure,original,Ana_Fr,SIGNS_GASTRO_Ana_Fr
+HP:0012122,Anterior uveitis,original,UvA_Fr,SIGNS_OCULAR_UvA_Fr
+HP:0001915,Aplastic anemia,original,apl_ane,SIGNS_HEMATOLOGICAL_apl_ane
+HP:0100545,Arterial stenosis,original,Aneur,SIGNS_CARDIO_Aneur
+HP:0004420,Arterial thrombosis,original,Art_Fr,SIGNS_CARDIO_Art_Fr
+HP:0002829,Arthralgia,original,Art_Fr,SIGNS_MUSCULOSKELETAL_Art_Fr
+HP:0001369,Arthritis,original,Mon_Fr,SIGNS_MUSCULOSKELETAL_Mon_Fr
+HP:0001251,Ataxia,original,ata,SIGNS_NEURO_ata
+HP:0000585,Band keratopathy,original,Band,SIGNS_OCULAR_Band
+HP:0000618,Blindness,original,Blind,SIGNS_OCULAR_Blind
+HP:0002653,Bone pain,original,Bon_Fr,SIGNS_MUSCULOSKELETAL_Bon_Fr
+HP:0012385,Camptodactyly,original,Camt,SIGNS_MUSCULOSKELETAL_Camt
+HP:0031319,Cardiomyocyte hypertrophy,original,car_hyp,SIGNS_CARDIO_car_hyp
+HP:0001638,Cardiomyopathy,original,Cardi,SIGNS_CARDIO_Cardi
+HP:0000518,Cataract,original,Catar,SIGNS_OCULAR_Catar
+HP:0025289,Cervical lymphadenopathy,original,Enl_Fr,SIGNS_LYMPHOID_Enl_Fr
+HP:0100749,Chest pain,original,Ch_Fr,SIGNS_CARDIO_Ch_Fr
+HP:0009710,Chilblains,original,chi,SIGNS_MUCO_CUTANEOUS_chi
+HP:0025143,Chills,original,Sen_Fr,SIGNS_EPISODES_Chills_CONSTITUTIONAL_Sen_Fr
+HP:0034315,Chronic cough,original,Cou_Fr,SIGNS_CARDIO_Cou_Fr
+HP:0001217,Clubbing,original,Club,SIGNS_MUSCULOSKELETAL_Club
+HP:0000509,Conjunctivitis,original,Con_Fr,SIGNS_OCULAR_Con_Fr
+HP:0002019,Constipation,original,Con_Fr,SIGNS_GASTRO_Con_Fr
+HP:0025142,Constitutional symptom,original,constitutional,CLINICAL_SUMMARY_constitutional
+HP:0006824,Cranial nerve paralysis,original,Cra_Fr_Cran,SIGNS_NEURO_Cra_Fr_Cran
+HP:0000992,Cutaneous photosensitivity,original,pho,SIGNS_MUCO_CUTANEOUS_pho
+HP:0000620,Dacryocystitis,original,Lac_Fr,SIGNS_OCULAR_Lac_Fr
+HP:0004313,Decreased circulating immunoglobulin concentration,original,hyp,SIGNS_HEMATOLOGICAL_hyp
+HP:0001882,Decreased total leukocyte count,original,leu,SIGNS_HEMATOLOGICAL_leu
+HP:0001888,Decreased total lymphocyte count,original,lym,SIGNS_HEMATOLOGICAL_lym
+HP:0001875,Decreased total neutrophil count,original,neu,SIGNS_HEMATOLOGICAL_neu
+HP:0002014,Diarrhea,original,Diar_Fr,SIGNS_GASTRO_Diar_Fr
+HP:0033402,Digital ischemia,original,dig_isc_non_gan,SIGNS_MUCO_CUTANEOUS_dig_isc_non_gan
+HP:0002094,Dyspnea,original,dys,SIGNS_CARDIO_dys
+HP:0000964,Eczematoid dermatitis,original,ecz,SIGNS_MUCO_CUTANEOUS_ecz
+HP:0000712,Emotional lability,original,Moo_Fr,SIGNS_CONSTITUTIONAL_Moo_Fr
+HP:0000031,Epididymitis,original,epi,SIGNS_GENITO_epi
+HP:0100534,Episcleritis,original,Epi_Fr,SIGNS_OCULAR_Epi_Fr
+HP:0001055,Erysipelas,original,ery_lik_ery,SIGNS_MUCO_CUTANEOUS_ery_lik_ery
+HP:0012219,Erythema nodosum,original,Er_Fr,SIGNS_MUCO_CUTANEOUS_Er_Fr
+HP:0025474,Erythematous plaque,original,EryPlaque_Fr,SIGNS_MUCO_CUTANEOUS_EryPlaque_Fr
+HP:0001508,Failure to thrive,original,Fail_thrive,SIGNS_OTHER_Fail_thrive
+HP:0100537,Fasciitis,original,Fas_Fr,SIGNS_MUSCULOSKELETAL_Fas_Fr
+HP:0012378,Fatigue,original,Fatigue,SIGNS_CONSTITUTIONAL_Fat_Fr_EPISODES_Fatigue
+HP:0001945,Fever,original,Fever,SIGNS_EPISODES_CONSTITUIONAL_Fever
+HP:0031090,Finger dactylitis,original,Dactylitis_Fr,SIGNS_MUSCULOSKELETAL_Dactylitis_Fr
+HP:0001371,Flexion contracture,original,Flex,SIGNS_MUSCULOSKELETAL_Flex
+HP:0025084,Folliculitis,original,Pse_Fr,SIGNS_MUCO_CUTANEOUS_Pse_Fr
+HP:0002007,Frontal bossing,original,Front,SIGNS_MUSCULOSKELETAL_Front
+HP:0005263,Gastritis,original,gas,SIGNS_GASTRO_gas
+HP:0002239,Gastrointestinal hemorrhage,original,GI_Fr,SIGNS_GASTRO_GI_Fr
+HP:0034274,Gastrointestinal ulcer,original,Gastr_Fr,SIGNS_GASTRO_Gastr_Fr
+HP:0008940,Generalized lymphadenopathy,original,Gen_Fr,SIGNS_LYMPHOID_Gen_Fr
+HP:0003249,Genital ulcers,original,Ul_Fr,SIGNS_MUCO_CUTANEOUS_Ul_Fr
+HP:0000501,Glaucoma,original,Glauc,SIGNS_OCULAR_Glauc
+HP:0000099,Glomerulonephritis,original,gln,SIGNS_GENITO_gln
+HP:0002315,Headache,original,HAn_Fr,SIGNS_NEURO_HAn_Fr
+HP:0012156,Hemophagocytosis,original,Macrop,SIGNS_OTHER_Macrop
+HP:0002105,Hemoptysis,original,He_Fr,SIGNS_CARDIO_He_Fr
+HP:0012115,Hepatitis,original,hep,SIGNS_GASTRO_hep
+HP:0002240,Hepatomegaly,original,Hep_Fr,SIGNS_LYMPHOID_Hep_Fr
+HP:0000238,Hydrocephalus,original,Hydro,SIGNS_NEURO_Hydro
+HP:0100774,Hyperostosis,original,Hyper,SIGNS_MUSCULOSKELETAL_Hyper
+HP:0000822,Hypertension,original,ess_hyp,SIGNS_GENITO_ess_hyp
+HP:0000822,Hypertension,original,HypTen,SIGNS_OTHER_HypTen
+HP:0008064,Ichthyosis,original,Ta_Fr,SIGNS_MUCO_CUTANEOUS_Ta_Fr
+HP:0000789,Infertility,original,Infert,SIGNS_OTHER_Infert
+HP:0001249,Intellectual disability,original,Ment,SIGNS_NEURO_Ment
+HP:0005214,Intestinal obstruction,original,Occl,SIGNS_GASTRO_Occl
+HP:0031368,Intestinal perforation,original,Gut,SIGNS_GASTRO_Gut
+HP:0002170,Intracranial hemorrhage,original,int_hem,SIGNS_NEURO_int_hem
+HP:0000491,Keratitis,original,Ker_Fr,SIGNS_OCULAR_Ker_Fr
+HP:0005310,Large vessel vasculitis,original,Vascul,SIGNS_CARDIO_Vascul
+HP:0005310,Large vessel vasculitis,original,lar_ves_vas,SIGNS_CARDIO_lar_ves_vas
+HP:0009125,Lipodystrophy,original,Lipo_Fr,SIGNS_MUCO_CUTANEOUS_Lipo_Fr
+HP:0033260,Livedo racemosa,original,liv_rac,SIGNS_MUCO_CUTANEOUS_liv_rac
+HP:0011134,Low-grade fever,original,LowFever,SIGNS_CONSTITUTIONAL_LowFev_EPISODES_LowFever
+HP:0040186,Maculopapular exanthema,original,Mac_Fr,SIGNS_MUCO_CUTANEOUS_Mac_Fr
+HP:0033834,Malaise,original,Mal_Fr,SIGNS_CONSTITUTIONAL_Mal_Fr
+HP:0001287,Meningitis,original,As_Fr,SIGNS_NEURO_As_Fr
+HP:0033622,Migratory erythematous plaque,original,Mig_Fr,SIGNS_MUCO_CUTANEOUS_Mig_Fr
+HP:0001324,Muscle weakness,original,mus_wea,SIGNS_MUSCULOSKELETAL_mus_wea
+HP:0003326,Myalgia,original,Mya_Fr,SIGNS_MUSCULOSKELETAL_Mya_Fr
+HP:0001658,Myocardial infarction,original,Myocar,SIGNS_CARDIO_Myocar
+HP:0100614,Myositis,original,Myo_Fr,SIGNS_MUSCULOSKELETAL_Myo_Fr
+HP:0002664,Neoplasm,original,Tumor,SIGNS_OTHER_Tumor
+HP:0040313,Oligoarthritis,original,Oli_Fr,SIGNS_MUSCULOSKELETAL_Oli_Fr
+HP:0000648,Optic atrophy,original,Op_Fr_Optic,SIGNS_OCULAR_Op_Fr_Optic
+HP:0100653,Optic neuritis,original,Op_Fr,SIGNS_NEURO_Op_Fr
+HP:0000155,Oral ulcer,original,Aph_Fr,SIGNS_MUCO_CUTANEOUS_Aph_Fr
+HP:0002797,Osteolysis,original,Ost,SIGNS_MUSCULOSKELETAL_Ost
+HP:0000939,Osteoporosis,original,Osteo,SIGNS_MUSCULOSKELETAL_Osteo
+HP:0100847,Palmoplantar pustulosis,original,pal_pla_pus,SIGNS_MUCO_CUTANEOUS_pal_pla_pus
+HP:0031363,Palpable purpura,original,Pal_Fr,SIGNS_MUCO_CUTANEOUS_Pal_Fr
+HP:0100540,Palpebral edema,original,EyeSw_Fr,SIGNS_MUCO_CUTANEOUS_EyeSw_Fr
+HP:0001876,Pancytopenia,original,pan,SIGNS_HEMATOLOGICAL_pan
+HP:0012490,Panniculitis,original,OP_Fr,SIGNS_MUCO_CUTANEOUS_OP_Fr
+HP:0001085,Papilledema,original,Pa_Fr_pap,SIGNS_OCULAR_Pa_Fr_pap
+HP:0011850,Parotitis,original,Par_Fr,SIGNS_LYMPHOID_Par_Fr
+HP:0033308,Patellar overgrowth,original,Pat,SIGNS_MUSCULOSKELETAL_Pat
+HP:0001701,Pericarditis,original,Pe_Fr,SIGNS_CARDIO_Pe_Fr
+HP:0100539,Periorbital edema,original,Per_Fr,SIGNS_OCULAR_Per_Fr
+HP:0009830,Peripheral neuropathy,original,Perip_per_neu,SIGNS_NEURO_Perip_per_neu
+HP:0002586,Peritonitis,original,Ase_Fr,SIGNS_GASTRO_Ase_Fr
+HP:0034035,Pharyngeal exudate,original,Ex_Fr,SIGNS_MUCO_CUTANEOUS_Ex_Fr
+HP:0025439,Pharyngitis,original,Ery_Fr,SIGNS_MUCO_CUTANEOUS_Ery_Fr
+HP:0002102,Pleuritis,original,Pl_Fr,SIGNS_CARDIO_Pl_Fr
+HP:0005764,Polyarticular arthritis,original,Pol_Fr,SIGNS_MUSCULOSKELETAL_Pol_Fr
+HP:0025532,Positive pathergy test,original,Po_Fr,SIGNS_MUCO_CUTANEOUS_Po_Fr
+HP:0012123,Posterior uveitis,original,UvP_Fr,SIGNS_OCULAR_UvP_Fr
+HP:0003765,Psoriasiform dermatitis,original,Ps_Fr,SIGNS_MUCO_CUTANEOUS_Ps_Fr
+HP:0002206,Pulmonary fibrosis,original,PulmFibro,SIGNS_CARDIO_PulmFibro
+HP:0033605,Pustular rash,original,Pa_Fr,SIGNS_MUCO_CUTANEOUS_Pa_Fr
+HP:0025452,Pyoderma gangrenosum,original,Py_Fr,SIGNS_MUCO_CUTANEOUS_Py_Fr
+HP:0030880,Raynaud phenomenon,original,ray_phe,SIGNS_MUCO_CUTANEOUS_ray_phe
+HP:0002719,Recurrent infections,original,rec_inf,SIGNS_HEMATOLOGICAL_rec_inf
+HP:0100817,Renovascular hypertension,original,ren_hyp,SIGNS_GENITO_ren_hyp
+HP:0025188,Retinal vasculitis,original,Re_Fr,SIGNS_OCULAR_Re_Fr
+HP:0100532,Scleritis,original,Scl_Fr,SIGNS_OCULAR_Scl_Fr
+HP:0001250,Seizure,original,Sei_Fr,SIGNS_NEURO_Sei_Fr
+HP:0000407,Sensorineural hearing impairment,original,Neuro,SIGNS_NEURO_Neuro
+HP:0032169,Severe infection,original,sev_inf,SIGNS_HEMATOLOGICAL_sev_inf
+HP:0032169,Severe infection,original,Cultur,SIGNS_OTHER_Cultur
+HP:0003202,Skeletal muscle atrophy,original,MuscAtrop,SIGNS_MUSCULOSKELETAL_MuscAtrop
+HP:0200042,Skin ulcer,original,cut_ulc,SIGNS_MUCO_CUTANEOUS_cut_ulc
+HP:0011944,Small vessel vasculitis,original,sma_ves_vas,SIGNS_CARDIO_sma_ves_vas
+HP:0034336,Splenic infarction,original,spl_inf,SIGNS_LYMPHOID_spl_inf
+HP:0001744,Splenomegaly,original,Spl_Fr,SIGNS_LYMPHOID_Spl_Fr
+HP:0001297,Stroke,original,str,SIGNS_NEURO_str
+HP:0001482,Subcutaneous nodule,original,sub_nod,SIGNS_MUCO_CUTANEOUS_sub_nod
+HP:0025230,Tendonitis,original,Te_Fr,SIGNS_MUSCULOSKELETAL_Te_Fr
+HP:0033839,Testicular pain,original,Gon_Fr,SIGNS_GENITO_Gon_Fr
+HP:0002445,Tetraplegia,original,par,SIGNS_NEURO_par
+HP:0001873,Thrombocytopenia,original,thr,SIGNS_HEMATOLOGICAL_thr
+HP:0002326,Transient ischemic attack,original,tra_isc_att,SIGNS_NEURO_tra_isc_att
+HP:0025204,Triggered by,original,Trigg,SIGNS_EPISODES_Trigg
+HP:0025206,Triggered by cold,original,Cold,SIGNS_EPISODES_Cold
+HP:0025377,Triggered by exertion,original,Excercise,SIGNS_EPISODES_Excercise
+HP:0033793,Triggered by food ingestion,original,Food,SIGNS_EPISODES_Food
+HP:0033184,Triggered by infection,original,Infect,SIGNS_EPISODES_Infect
+HP:0025220,Triggered by menstruation,original,Menstr,SIGNS_EPISODES_Menstr
+HP:0031135,Triggered by physical trauma,original,Trauma,SIGNS_EPISODES_Trauma
+HP:0025226,Triggered by stress,original,Stress,SIGNS_EPISODES_Stress
+HP:0025219,Triggered by vaccination,original,Vaccin,SIGNS_EPISODES_Vaccin
+HP:0500006,Urethritis,original,Ure_Fr,SIGNS_GENITO_Ure_Fr
+HP:0001025,Urticaria,original,Urt_Fr,SIGNS_MUCO_CUTANEOUS_Urt_Fr
+HP:0004936,Venous thrombosis,original,Ven_Fr,SIGNS_CARDIO_Ven_Fr
+HP:0002321,Vertigo,original,Ver_Fr,SIGNS_NEURO_Ver_Fr
+HP:0000505,Visual impairment,original,Impa,SIGNS_OCULAR_Impa
+HP:0002013,Vomiting,original,Vom_Fr,SIGNS_GASTRO_Vom_Fr
+HP:0001824,Weight loss,original,Weight,SIGNS_CONSTITUTIONAL_Weight
