@@ -4,6 +4,8 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+import json
+import joblib
 
 
 APP_TITLE = "hpo-dx"
@@ -16,14 +18,30 @@ APP_SUBTITLE = (
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_HPO_FILE = REPO_ROOT / "assets" / "ontology" / "hpo_terms_expanded_with_ancestors.csv"
 DEFAULT_ANCESTORS_FILE = REPO_ROOT / "assets" / "ontology" / "hpo_ancestors_map.tsv"
+DEFAULT_FEATURES_FILE = REPO_ROOT / "assets" / "model" / "baked_feature_names.txt"
+DEFAULT_PREPROCESSING_FILE = REPO_ROOT / "assets" / "model" / "preprocessing_metadata.json"
 
 # These should match the levels expected by the training preprocessing.
 GENDER_OPTIONS = ["Female", "Male"]
-# ETHNICITY_OPTIONS = ["2", "4", "0", "3", "5", "6", "8", "10", "12", "13", "14"]
 ETHNICITY_OPTIONS = [
-    "Ethnicity group 2",
-    "Ethnicity group 4",
-    "Other ethnicity",
+    # "Ethnicity group 2",
+    # "Ethnicity group 4",
+    # "Other ethnicity",
+    "0: African, African descent",
+    "1: Arctic (Siberian, Eskimo)",
+    "2: Caucasian (European)",
+    "3: Caucasian (Indian)",
+    "4: Caucasian (Middle East)",
+    "5: Caucasian (North African, Other)",
+    "6: Hispanic (for US)",
+    "7: Indigenous Australian",
+    "8: Mixed Ethnicity",
+    "9: Native American",
+    "10: North East Asian (Mongol, Tibetan, Korean Japanese, etc)",
+    "11: Pacific (Polynesian, Micronesian, etc)",
+    "12: South East Asian (Chinese, Thai, Malay, Filipino, etc)",
+    "13: Other Ethnicity",
+    "14: Cannot be reported"
 ]
 
 
@@ -95,6 +113,114 @@ def load_ancestors_map(file_path: Path) -> dict[str, set[str]]:
     )
 
     return ancestors_map
+
+
+def load_feature_names(file_path: Path) -> list[str]:
+    """Load the final baked feature names used by the trained model."""
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Feature names file not found: {file_path}. Please add the file or update the configured path."
+        )
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        feature_names = [line.strip() for line in f if line.strip()]
+
+    if not feature_names:
+        raise ValueError(f"No feature names found in {file_path}.")
+
+    return feature_names
+
+
+def load_preprocessing_metadata(file_path: Path) -> dict:
+    """Load preprocessing metadata required to build the model input vector."""
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Preprocessing metadata file not found: {file_path}. Please add the file or update the configured path."
+        )
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        metadata = json.load(f)
+
+    return metadata
+
+
+# --- helpers ---
+def scale_numeric(value: float, mean_value: float, sd_value: float) -> float:
+    """Apply training-based standardization to a numeric variable."""
+    if sd_value == 0:
+        return 0.0
+    return (value - mean_value) / sd_value
+
+
+def encode_gender(gender_value: str | None) -> int:
+    """Encode gender into the baked dummy representation."""
+    return int(gender_value == "Male")
+
+
+def encode_ethnicity(ethnicity_value: str | None) -> tuple[int, int]:
+    """Encode ethnicity into the baked dummy representation."""
+    # Training encoding:
+    # code 2 -> ethnicity_X4 = 0, ethnicity_other = 0
+    # code 4 -> ethnicity_X4 = 1, ethnicity_other = 0
+    # all other codes -> ethnicity_X4 = 0, ethnicity_other = 1
+    if ethnicity_value == "2: Caucasian (European)":
+        return 0, 0
+
+    if ethnicity_value == "4: Caucasian (Middle East)":
+        return 1, 0
+
+    return 0, 1
+# ---------------
+
+
+def build_feature_vector(
+    feature_names: list[str],
+    preprocessing_metadata: dict,
+    active_hpo_ids: set[str],
+    age_value: float,
+    fever_length_value: float,
+    gender_value: str,
+    ethnicity_value: str,
+) -> pd.DataFrame:
+    """Build a single-row feature vector aligned to the trained model."""
+    row = {feature_name: 0.0 for feature_name in feature_names}
+
+    # Encode active HPO terms using the baked naming convention
+    for hpo_id in active_hpo_ids:
+        baked_hpo_feature = f"{hpo_id}_X1"
+        if baked_hpo_feature in row:
+            row[baked_hpo_feature] = 1.0
+
+    # Scale numeric variables
+    if "age" in row:
+        row["age"] = scale_numeric(
+            age_value,
+            preprocessing_metadata["age_mean"],
+            preprocessing_metadata["age_sd"],
+        )
+
+    if "fever_length" in row:
+        row["fever_length"] = scale_numeric(
+            fever_length_value,
+            preprocessing_metadata["fever_length_mean"],
+            preprocessing_metadata["fever_length_sd"],
+        )
+
+    # Encode gender
+    gender_column = preprocessing_metadata.get("gender_dummy_column", "gender_Male")
+    if gender_column in row:
+        row[gender_column] = float(encode_gender(gender_value))
+
+    # Encode ethnicity
+    ethnicity_x4, ethnicity_other = encode_ethnicity(ethnicity_value)
+
+    if "ethnicity_X4" in row:
+        row["ethnicity_X4"] = float(ethnicity_x4)
+
+    if "ethnicity_other" in row:
+        row["ethnicity_other"] = float(ethnicity_other)
+
+    return pd.DataFrame([row], columns=feature_names)
 
 
 def initialize_session_state() -> None:
@@ -256,6 +382,21 @@ def main() -> None:
     st.caption(APP_SUBTITLE)
     st.divider()
 
+    try:
+        feature_names = load_feature_names(DEFAULT_FEATURES_FILE)
+    except Exception as exc:
+        st.error(str(exc))
+        st.stop()
+
+    try:
+        preprocessing_metadata = load_preprocessing_metadata(DEFAULT_PREPROCESSING_FILE)
+    except Exception as exc:
+        st.error(str(exc))
+        st.stop()
+
+
+    initialize_session_state()
+
     left_col, right_col = st.columns([1, 1], gap="large")
 
     with left_col:
@@ -284,7 +425,6 @@ def main() -> None:
                 if hpo_id in valid_hpo_ids
             }
 
-            initialize_session_state()
             st.session_state.ancestors_map = ancestors_map
 
             label_to_id = dict(zip(hpo_df["display_label"], hpo_df["hpo_id"]))
@@ -311,11 +451,11 @@ def main() -> None:
 
             with clinical_col1:
                 st.number_input(
-                    "Age",
+                    "Age at onset",
                     min_value=0.0,
                     step=0.1,
                     value=st.session_state.age_value,
-                    placeholder="Enter age...",
+                    placeholder="Enter age at onset...",
                     key="age_value",
                 )
 
@@ -364,7 +504,7 @@ def main() -> None:
             with add_col:
                 st.button(
                     "Add HPO",
-                    use_container_width=True,
+                    width='stretch',
                     disabled=selected_label is None,
                     on_click=add_hpo,
                     args=(selected_label, label_to_id),
@@ -374,7 +514,7 @@ def main() -> None:
                 st.button(
                     "Generate prediction",
                     type="primary",
-                    use_container_width=True,
+                    width='stretch',
                     on_click=request_prediction,
                     disabled=not prediction_ready,
                 )
@@ -382,7 +522,7 @@ def main() -> None:
             with undo_col:
                 st.button(
                     "Undo last",
-                    use_container_width=True,
+                    width='stretch',
                     disabled=not st.session_state.selected_hpo_ids,
                     on_click=remove_last_hpo,
                 )
@@ -390,12 +530,12 @@ def main() -> None:
             with reset_col:
                 st.button(
                     "Reset all",
-                    use_container_width=True,
+                    width='stretch',
                     disabled=not st.session_state.selected_hpo_ids
-                    and st.session_state.age_value == None
-                    and st.session_state.fever_length_value == None
-                    and st.session_state.gender_value == None
-                    and st.session_state.ethnicity_value == None,
+                    and st.session_state.age_value is None
+                    and st.session_state.fever_length_value is None
+                    and st.session_state.gender_value is None
+                    and st.session_state.ethnicity_value is None,
                     on_click=reset_all,
                 )
 
@@ -415,8 +555,25 @@ def main() -> None:
         st.markdown("## Prediction results")
         st.caption("Probabilistic output across the five diseases.")
 
+        # if st.session_state.prediction_requested:
+        #     render_prediction_placeholder(st.session_state.selected_hpo_ids)
+        # else:
+        #     st.info("Prediction results will appear here after all required inputs are provided.")
         if st.session_state.prediction_requested:
-            render_prediction_placeholder(st.session_state.selected_hpo_ids)
+            feature_vector = build_feature_vector(
+                feature_names=feature_names,
+                preprocessing_metadata=preprocessing_metadata,
+                active_hpo_ids=st.session_state.active_hpo_ids,
+                age_value=st.session_state.age_value,
+                fever_length_value=st.session_state.fever_length_value,
+                gender_value=st.session_state.gender_value,
+                ethnicity_value=st.session_state.ethnicity_value,
+            )
+
+            st.markdown("### Built feature vector")
+            non_zero_features = feature_vector.loc[:, (feature_vector != 0).any(axis=0)].T
+            non_zero_features.columns = ["value"]
+            st.dataframe(non_zero_features, width='stretch')
         else:
             st.info("Prediction results will appear here after all required inputs are provided.")
 
