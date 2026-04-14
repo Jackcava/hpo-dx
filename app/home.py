@@ -192,7 +192,7 @@ def request_prediction() -> None:
 
 def render_selected_terms(selected_ids: list[str], hpo_df: pd.DataFrame) -> None:
     """Render the currently selected HPO terms in insertion order."""
-    st.markdown("### Selected HPO terms")
+    st.markdown("##### Selected HPO terms")
 
     if not selected_ids:
         st.info("No HPO terms selected yet.")
@@ -209,7 +209,7 @@ def render_selected_terms(selected_ids: list[str], hpo_df: pd.DataFrame) -> None
 
 def render_clinical_summary() -> None:
     """Render the current clinical input summary."""
-    st.markdown("### Clinical input")
+    # st.markdown("### Clinical input")
     st.write(f"- **Age:** {st.session_state.age_value}")
     st.write(f"- **Fever length (days):** {st.session_state.fever_length_value}")
     st.write(f"- **Gender:** {st.session_state.gender_value}")
@@ -246,7 +246,8 @@ def render_prediction_placeholder(selected_ids: list[str]) -> None:
 def main() -> None:
     st.set_page_config(
         page_title=APP_TITLE,
-        page_icon=":medical_symbol:",
+        # page_icon="🏥",
+        page_icon=":material/assistant_device:",
         layout="wide",
         initial_sidebar_state="collapsed",
     )
@@ -259,143 +260,150 @@ def main() -> None:
 
     with left_col:
 
-        try:
-            hpo_df = load_hpo_terms(DEFAULT_HPO_FILE)
-        except Exception as exc:
-            st.error(str(exc))
-            st.stop()
 
-        try:
-            ancestors_map = load_ancestors_map(DEFAULT_ANCESTORS_FILE)
-        except Exception as exc:
-            st.error(str(exc))
-            st.stop()
+        with st.container():
+            try:
+                hpo_df = load_hpo_terms(DEFAULT_HPO_FILE)
+            except Exception as exc:
+                st.error(str(exc))
+                st.stop()
 
-        valid_hpo_ids = set(hpo_df["hpo_id"])
+            try:
+                ancestors_map = load_ancestors_map(DEFAULT_ANCESTORS_FILE)
+            except Exception as exc:
+                st.error(str(exc))
+                st.stop()
 
-        # Keep only source HPO terms present in the current HPO catalog,
-        # and keep only ancestors that are also part of the same valid HPO space.
-        ancestors_map = {
-            hpo_id: {ancestor for ancestor in ancestors if ancestor in valid_hpo_ids}
-            for hpo_id, ancestors in ancestors_map.items()
-            if hpo_id in valid_hpo_ids
-        }
+            valid_hpo_ids = set(hpo_df["hpo_id"])
 
-        initialize_session_state()
-        st.session_state.ancestors_map = ancestors_map
+            # Keep only source HPO terms present in the current HPO catalog,
+            # and keep only ancestors that are also part of the same valid HPO space.
+            ancestors_map = {
+                hpo_id: {ancestor for ancestor in ancestors if ancestor in valid_hpo_ids}
+                for hpo_id, ancestors in ancestors_map.items()
+                if hpo_id in valid_hpo_ids
+            }
 
-        label_to_id = dict(zip(hpo_df["display_label"], hpo_df["hpo_id"]))
-        available_labels = hpo_df["display_label"].tolist()
+            initialize_session_state()
+            st.session_state.ancestors_map = ancestors_map
 
-        clinical_input_complete = all(
-            value is not None
-            for value in [
-                st.session_state.age_value,
-                st.session_state.fever_length_value,
-                st.session_state.gender_value,
-                st.session_state.ethnicity_value,
-            ]
-        )
+            label_to_id = dict(zip(hpo_df["display_label"], hpo_df["hpo_id"]))
+            available_labels = hpo_df["display_label"].tolist()
 
-        prediction_ready = (
-            clinical_input_complete
-            and bool(st.session_state.selected_hpo_ids)
-        )
-
-        st.markdown("### Clinical variables")
-
-        clinical_col1, clinical_col2 = st.columns(2)
-
-        with clinical_col1:
-            st.number_input(
-                "Age",
-                min_value=0.0,
-                step=0.1,
-                value=st.session_state.age_value,
-                placeholder="Enter age...",
-                key="age_value",
+            clinical_input_complete = all(
+                value is not None
+                for value in [
+                    st.session_state.age_value,
+                    st.session_state.fever_length_value,
+                    st.session_state.gender_value,
+                    st.session_state.ethnicity_value,
+                ]
             )
 
-            st.selectbox(
-                "Gender",
-                options=GENDER_OPTIONS,
+            prediction_ready = (
+                clinical_input_complete
+                and bool(st.session_state.selected_hpo_ids)
+            )
+
+            st.markdown("### Clinical variables")
+
+            clinical_col1, clinical_col2 = st.columns(2)
+
+            with clinical_col1:
+                st.number_input(
+                    "Age",
+                    min_value=0.0,
+                    step=0.1,
+                    value=st.session_state.age_value,
+                    placeholder="Enter age...",
+                    key="age_value",
+                )
+
+                st.selectbox(
+                    "Gender",
+                    options=GENDER_OPTIONS,
+                    index=None,
+                    placeholder="Select gender...",
+                    key="gender_value",
+                )
+
+            with clinical_col2:
+                st.number_input(
+                    "Fever length (days)",
+                    min_value=0.0,
+                    step=0.1,
+                    value=st.session_state.fever_length_value,
+                    placeholder="Enter fever length...",
+                    key="fever_length_value",
+                )
+
+                st.selectbox(
+                    "Ethnicity",
+                    options=ETHNICITY_OPTIONS,
+                    index=None,
+                    placeholder="Select ethnicity group...",
+                    key="ethnicity_value",
+                )
+
+        # st.divider()
+        st.space(size="xxsmall")
+
+        with st.container():
+
+            st.markdown("### Insert HPO terms")
+            selected_label = st.selectbox(
+                "Search and select one HPO term at a time",
+                options=available_labels,
                 index=None,
-                placeholder="Select gender...",
-                key="gender_value",
+                placeholder="Start typing a symptom name or an HPO code...",
+                key="selected_hpo_label",
             )
 
-        with clinical_col2:
-            st.number_input(
-                "Fever length (days)",
-                min_value=0.0,
-                step=0.1,
-                value=st.session_state.fever_length_value,
-                placeholder="Enter fever length...",
-                key="fever_length_value",
-            )
+            add_col, predict_col, undo_col, reset_col = st.columns([1, 1, 1, 1])
 
-            st.selectbox(
-                "Ethnicity",
-                options=ETHNICITY_OPTIONS,
-                index=None,
-                placeholder="Select ethnicity group...",
-                key="ethnicity_value",
-            )
+            with add_col:
+                st.button(
+                    "Add HPO",
+                    use_container_width=True,
+                    disabled=selected_label is None,
+                    on_click=add_hpo,
+                    args=(selected_label, label_to_id),
+                )
+
+            with predict_col:
+                st.button(
+                    "Generate prediction",
+                    type="primary",
+                    use_container_width=True,
+                    on_click=request_prediction,
+                    disabled=not prediction_ready,
+                )
+
+            with undo_col:
+                st.button(
+                    "Undo last",
+                    use_container_width=True,
+                    disabled=not st.session_state.selected_hpo_ids,
+                    on_click=remove_last_hpo,
+                )
+
+            with reset_col:
+                st.button(
+                    "Reset all",
+                    use_container_width=True,
+                    disabled=not st.session_state.selected_hpo_ids
+                    and st.session_state.age_value == None
+                    and st.session_state.fever_length_value == None
+                    and st.session_state.gender_value == None
+                    and st.session_state.ethnicity_value == None,
+                    on_click=reset_all,
+                )
 
         st.divider()
-
-        st.markdown("### Insert HPO terms")
-        selected_label = st.selectbox(
-            "Search and select one HPO term at a time",
-            options=available_labels,
-            index=None,
-            placeholder="Start typing a symptom name or an HPO code...",
-            key="selected_hpo_label",
-        )
-
-        add_col, predict_col, undo_col, reset_col = st.columns([1, 1, 1, 1])
-
-        with add_col:
-            st.button(
-                "Add HPO",
-                use_container_width=True,
-                disabled=selected_label is None,
-                on_click=add_hpo,
-                args=(selected_label, label_to_id),
-            )
-
-        with predict_col:
-            st.button(
-                "Generate prediction",
-                type="primary",
-                use_container_width=True,
-                on_click=request_prediction,
-                disabled=not prediction_ready,
-            )
-
-        with undo_col:
-            st.button(
-                "Undo last",
-                use_container_width=True,
-                disabled=not st.session_state.selected_hpo_ids,
-                on_click=remove_last_hpo,
-            )
-
-        with reset_col:
-            st.button(
-                "Reset all",
-                use_container_width=True,
-                disabled=not st.session_state.selected_hpo_ids
-                and st.session_state.age_value == None
-                and st.session_state.fever_length_value == None
-                and st.session_state.gender_value == None
-                and st.session_state.ethnicity_value == None,
-                on_click=reset_all,
-            )
-
-        st.divider()
+        st.markdown("### Entered variables:")
         render_clinical_summary()
-        st.divider()
+        # st.divider()
+        st.space(size="xxsmall")
         render_selected_terms(st.session_state.selected_hpo_ids, hpo_df)
 
 
@@ -404,11 +412,13 @@ def main() -> None:
 
     with right_col:
 
+        st.markdown("## Prediction results")
+        st.caption("Probabilistic output across the five diseases.")
+
         if st.session_state.prediction_requested:
-            st.divider()
             render_prediction_placeholder(st.session_state.selected_hpo_ids)
-
-
+        else:
+            st.info("Prediction results will appear here after all required inputs are provided.")
 
 
 
