@@ -5,7 +5,8 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 import json
-import joblib
+# import joblib
+import xgboost as xgb
 
 
 APP_TITLE = "hpo-dx"
@@ -20,6 +21,9 @@ DEFAULT_HPO_FILE = REPO_ROOT / "assets" / "ontology" / "hpo_terms_expanded_with_
 DEFAULT_ANCESTORS_FILE = REPO_ROOT / "assets" / "ontology" / "hpo_ancestors_map.tsv"
 DEFAULT_FEATURES_FILE = REPO_ROOT / "assets" / "model" / "baked_feature_names.txt"
 DEFAULT_PREPROCESSING_FILE = REPO_ROOT / "assets" / "model" / "preprocessing_metadata.json"
+DEFAULT_MODEL_BUNDLE = REPO_ROOT / "assets" / "model" / "ovr_bundle.joblib"
+DEFAULT_MODEL_DIR = REPO_ROOT / "assets" / "model"
+
 
 # These should match the levels expected by the training preprocessing.
 GENDER_OPTIONS = ["Female", "Male"]
@@ -144,6 +148,58 @@ def load_preprocessing_metadata(file_path: Path) -> dict:
     return metadata
 
 
+# def load_model_bundle(file_path: Path) -> dict:
+#     """Load the serialized OVR model bundle."""
+#     if not file_path.exists():
+#         raise FileNotFoundError(
+#             f"Model bundle not found: {file_path}. Please add the file or update the configured path."
+#         )
+
+#     bundle = joblib.load(file_path)
+
+#     if "models" not in bundle:
+#         raise ValueError("Invalid model bundle: missing 'models' key.")
+
+#     return bundle
+
+
+def load_xgb_models_from_json(model_dir: Path) -> dict:
+    """Load OVR XGBoost models saved as JSON."""
+    disease_files = {
+        "CAPS": model_dir / "CAPS.json",
+        "FMF": model_dir / "FMF.json",
+        "MKD": model_dir / "MKD.json",
+        "PFAPA": model_dir / "PFAPA.json",
+        "TRAPS": model_dir / "TRAPS.json",
+    }
+
+    models = {}
+
+    for disease, path in disease_files.items():
+        if not path.exists():
+            raise FileNotFoundError(f"Missing model file: {path}")
+
+        model = xgb.XGBClassifier()
+        model.load_model(path)
+
+        models[disease] = model
+
+    return models
+
+
+def build_model_bundle_from_json(model_dir: Path) -> dict:
+    models = load_xgb_models_from_json(model_dir)
+
+    bundle = {
+        "models": models,
+        "class_names": list(models.keys()),
+        # opzionale: aggiungi weights se li hai
+        # "f2_weights_train_cv": {...}
+    }
+
+    return bundle
+
+
 # --- helpers ---
 def scale_numeric(value: float, mean_value: float, sd_value: float) -> float:
     """Apply training-based standardization to a numeric variable."""
@@ -221,6 +277,64 @@ def build_feature_vector(
         row["ethnicity_other"] = float(ethnicity_other)
 
     return pd.DataFrame([row], columns=feature_names)
+
+
+def predict_ovr_probabilities(
+    model_bundle: dict,
+    feature_frame: pd.DataFrame,
+) -> pd.DataFrame:
+    """Generate raw and normalized OVR probabilities for a single patient."""
+    models = model_bundle["models"]
+    class_names = model_bundle.get("class_names", list(models.keys()))
+    weights = model_bundle.get("f2_weights_train_cv")
+
+    raw_scores: dict[str, float] = {}
+
+    for disease in class_names:
+        model = models[disease]
+        raw_scores[disease] = float(model.predict_proba(feature_frame)[0, 1])
+
+    raw_sum = sum(raw_scores.values())
+    if raw_sum == 0:
+        norm_scores = {disease: 0.0 for disease in class_names}
+    else:
+        norm_scores = {
+            disease: raw_scores[disease] / raw_sum
+            for disease in class_names
+        }
+
+    results_df = pd.DataFrame(
+        {
+            "disease": class_names,
+            # "raw_probability": [raw_scores[disease] for disease in class_names], # for debugging
+            "normalized_probability": [norm_scores[disease] for disease in class_names],
+        }
+    )
+
+    if weights is not None:
+        weighted_raw = {
+            disease: raw_scores[disease] * float(weights[disease])
+            for disease in class_names
+        }
+        weighted_sum = sum(weighted_raw.values())
+        if weighted_sum == 0:
+            weighted_scores = {disease: 0.0 for disease in class_names}
+        else:
+            weighted_scores = {
+                disease: weighted_raw[disease] / weighted_sum
+                for disease in class_names
+            }
+
+        results_df["weighted_probability"] = [
+            weighted_scores[disease] for disease in class_names
+        ]
+
+    results_df = results_df.sort_values(
+        "normalized_probability",
+        ascending=False,
+    ).reset_index(drop=True)
+
+    return results_df
 
 
 def initialize_session_state() -> None:
@@ -342,31 +456,29 @@ def render_clinical_summary() -> None:
     st.write(f"- **Ethnicity:** {st.session_state.ethnicity_value}")
 
 
-def render_prediction_placeholder(selected_ids: list[str]) -> None:
-    """Temporary placeholder for the future model prediction output."""
+def render_prediction_results(results_df: pd.DataFrame) -> None:
+    """Render prediction probabilities and a sorted bar chart."""
     st.markdown("### Prediction output")
 
-    if not selected_ids:
-        st.warning("Please select at least one HPO term before generating a prediction.")
-        return
+    top_disease = results_df.iloc[0]["disease"]
+    top_probability = results_df.iloc[0]["normalized_probability"]
 
-    st.success("Input captured correctly. Model inference will be connected in the next step.")
+    st.success(f"Most probable disease: {top_disease} ({top_probability:.1%})")
 
-    st.write("Current clinical input:")
-    st.code(
-        "\n".join(
-            [
-                f"age = {st.session_state.age_value}",
-                f"fever_length = {st.session_state.fever_length_value}",
-                f"gender = {st.session_state.gender_value}",
-                f"ethnicity = {st.session_state.ethnicity_value}",
-            ]
-        ),
-        language="text",
-    )
+    display_df = results_df.copy()
+    # display_df["raw_probability"] = display_df["raw_probability"].round(3)
+    display_df["normalized_probability"] = display_df["normalized_probability"].round(3)
 
-    st.write("Current user-selected HPO input:")
-    st.code("\n".join(selected_ids), language="text")
+    if "weighted_probability" in display_df.columns:
+        display_df["weighted_probability"] = display_df["weighted_probability"].round(3)
+
+    st.dataframe(display_df, width="stretch", hide_index=True)
+
+    chart_df = results_df[["disease", "normalized_probability"]].copy()
+    chart_df = chart_df.set_index("disease")
+
+    st.markdown("### Probability bar plot")
+    st.bar_chart(chart_df)
 
 
 def main() -> None:
@@ -390,6 +502,19 @@ def main() -> None:
 
     try:
         preprocessing_metadata = load_preprocessing_metadata(DEFAULT_PREPROCESSING_FILE)
+    except Exception as exc:
+        st.error(str(exc))
+        st.stop()
+
+    # try:
+    #     model_bundle = load_model_bundle(DEFAULT_MODEL_BUNDLE)
+    # except Exception as exc:
+    #     st.error(str(exc))
+    #     st.stop()
+
+
+    try:
+        model_bundle = build_model_bundle_from_json(DEFAULT_MODEL_DIR)
     except Exception as exc:
         st.error(str(exc))
         st.stop()
@@ -555,10 +680,6 @@ def main() -> None:
         st.markdown("## Prediction results")
         st.caption("Probabilistic output across the five diseases.")
 
-        # if st.session_state.prediction_requested:
-        #     render_prediction_placeholder(st.session_state.selected_hpo_ids)
-        # else:
-        #     st.info("Prediction results will appear here after all required inputs are provided.")
         if st.session_state.prediction_requested:
             feature_vector = build_feature_vector(
                 feature_names=feature_names,
@@ -570,10 +691,12 @@ def main() -> None:
                 ethnicity_value=st.session_state.ethnicity_value,
             )
 
-            st.markdown("### Built feature vector")
-            non_zero_features = feature_vector.loc[:, (feature_vector != 0).any(axis=0)].T
-            non_zero_features.columns = ["value"]
-            st.dataframe(non_zero_features, width='stretch')
+            results_df = predict_ovr_probabilities(
+                model_bundle=model_bundle,
+                feature_frame=feature_vector,
+            )
+
+            render_prediction_results(results_df)
         else:
             st.info("Prediction results will appear here after all required inputs are provided.")
 
