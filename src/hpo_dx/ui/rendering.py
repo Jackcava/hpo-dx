@@ -22,10 +22,10 @@ def render_selected_terms(selected_ids: list[str], hpo_df: pd.DataFrame) -> None
 def render_clinical_summary() -> None:
     """Render the current clinical input summary."""
     # st.markdown("### Clinical input")
-    st.write(f"- **Age:** {st.session_state.age_value}")
+    st.write(f"- **Age at onset:** {st.session_state.age_value}")
     st.write(f"- **Fever length (days):** {st.session_state.fever_length_value}")
-    st.write(f"- **Gender:** {st.session_state.gender_value}")
-    st.write(f"- **Ethnicity:** {st.session_state.ethnicity_value}")
+    st.write(f"- **Sex:** {st.session_state.gender_value}")
+    st.write(f"- **Ancestry:** {st.session_state.ethnicity_value}")
 
 
 def render_prediction_results(results_df: pd.DataFrame) -> None:

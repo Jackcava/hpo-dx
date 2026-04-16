@@ -243,10 +243,10 @@ def main() -> None:
                 )
 
                 st.selectbox(
-                    "Gender",
+                    "Sex",
                     options=GENDER_OPTIONS,
                     index=None,
-                    placeholder="Select gender...",
+                    placeholder="Select sex...",
                     key="gender_value",
                 )
 
@@ -261,10 +261,10 @@ def main() -> None:
                 )
 
                 st.selectbox(
-                    "Ethnicity",
+                    "Ancestry",
                     options=ETHNICITY_OPTIONS,
                     index=None,
-                    placeholder="Select ethnicity group...",
+                    placeholder="Select ancestry group...",
                     key="ethnicity_value",
                 )
 
