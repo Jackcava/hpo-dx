@@ -12,9 +12,12 @@ The application leverages Human Phenotype Ontology (HPO) terms, demographic vari
 
 The current implementation uses supervised machine learning models trained on curated clinical datasets, incorporating ontology-aware feature expansion via HPO ancestor propagation.
 
+### GUI preview
+<img src="preview.png" width="1500">
+
 ---
 
-## 🚀 Features
+## Features
 
 - Interactive Streamlit interface
 - HPO-based phenotype input with ontology expansion
@@ -24,7 +27,7 @@ The current implementation uses supervised machine learning models trained on cu
 
 ---
 
-## 🧪 Research-use prototype
+## Research-use prototype
 
 **hpo-dx is a research prototype intended for exploratory and decision-support use only.**
 
@@ -36,22 +39,22 @@ The current version has been developed and evaluated on the datasets described i
 
 ---
 
-## ▶️ Running the app
-```code
+## Usage
+```bash
 pip install -r requirements.txt
 streamlit run app/home.py
 ```
 
 ---
 
-## 🐍 Python version
+## Python version
 
 This project has been developed and tested with Python 3.13.13.
 Compatibility with earlier versions (e.g., 3.10–3.12) is expected but not guaranteed.
 
 ---
 
-## 🧠 Methodological note
+## Methodological note
 
 The model uses:
 
@@ -62,7 +65,7 @@ The model uses:
 
 ---
 
-## 🙏 Acknowledgment and attribution
+## Acknowledgment and attribution
 
 This project uses the Human Phenotype Ontology (HPO) to represent phenotypic abnormalities and ontology-derived relationships.
 
@@ -72,10 +75,9 @@ HPO website: https://hpo.jax.org
 
 ---
 
-## 📚 References
-*Machine learning–based validation of Human Phenotype Ontology (HPO) terms for systemic autoinflammatory diseases using the Eurofever Registry: the ODINO project.*
-
+## References
+(in peer-review) Cavalca G & Matucci-Cerinic C, et al. *Machine learning-based validation of Human Phenotype Ontology (HPO) terms for systemic autoinflammatory diseases using the Eurofever Registry: the ODINO project.*
 ---
 
-## 📄 License
+## License
 See LICENSE file.
