@@ -1,5 +1,9 @@
 # hpo-dx
 
+![Python](https://img.shields.io/badge/python-3.13-blue)
+![Streamlit](https://img.shields.io/badge/interface-streamlit-red)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 **hpo-dx** is a phenotype-driven clinical decision support prototype for the differential diagnosis of hereditary recurrent fever syndromes.
 
 The application leverages Human Phenotype Ontology (HPO) terms, demographic variables, and machine learning models to estimate the probability of five autoinflammatory diseases:
@@ -13,7 +17,9 @@ The application leverages Human Phenotype Ontology (HPO) terms, demographic vari
 The current implementation uses supervised machine learning models trained on curated clinical datasets, incorporating ontology-aware feature expansion via HPO ancestor propagation.
 
 ### GUI preview
-<img src="preview.png" width="1500">
+<p align="center">
+  <img src="preview.png" width="1500">
+</p>
 
 ---
 
@@ -39,6 +45,19 @@ The current version has been developed and evaluated on the datasets described i
 
 ---
 
+## Model artifacts
+
+Pretrained model artifacts (`.joblib`) are not distributed with the public repository.
+
+The repository currently includes:
+- preprocessing pipeline
+- ontology integration
+- inference framework
+- Streamlit application interface
+
+but not trained model weights.
+
+
 ## Usage
 ```bash
 pip install -r requirements.txt
@@ -49,19 +68,20 @@ streamlit run app/home.py
 
 ## Python version
 
-This project has been developed and tested with Python 3.13.13.
+This project has been developed and tested with Python 3.13.
 Compatibility with earlier versions (e.g., 3.10–3.12) is expected but not guaranteed.
 
 ---
 
 ## Methodological note
 
-The model uses:
+The current implementation includes:
 
 - HPO-based phenotypic encoding
-- Ancestor propagation within the ontology
-- One-vs-Rest classification strategy
-- Feature normalization based on training statistics
+- Ontology-aware ancestor propagation
+- One-vs-Rest probabilistic classification
+- Feature normalization using training-set statistics
+- Phenotype vector expansion using HPO hierarchical relationships
 
 ---
 
@@ -76,7 +96,10 @@ HPO website: https://hpo.jax.org
 ---
 
 ## References
-(in peer-review) Cavalca G & Matucci-Cerinic C, et al. *Machine learning-based validation of Human Phenotype Ontology (HPO) terms for systemic autoinflammatory diseases using the Eurofever Registry: the ODINO project.*
+
+*(under review)* Cavalca G & Matucci-Cerinic C, et al.
+Machine learning-based validation of Human Phenotype Ontology (HPO) terms for systemic autoinflammatory diseases using the Eurofever Registry: the ODINO project.
+
 ---
 
 ## License
