@@ -21,17 +21,18 @@ The current implementation uses supervised machine learning models trained on cu
   <img src="preview.png" width="1500">
 </p>
 
----
-
-## Features
-
-- Interactive Streamlit interface
-- HPO-based phenotype input with ontology expansion
-- Integration of clinical variables (age at onset, fever length, gender, ethnicity)
-- One-vs-Rest probabilistic classification
-- Interpretable output with ranked probabilities and visualization
+You can also find the web version at this [link](https://biodaas.gaslini.org/hpo-dx/).
 
 ---
+
+## Usage
+```bash
+pip install -r requirements.txt
+streamlit run app/home.py
+```
+
+---
+
 
 ## Research-use prototype
 
@@ -57,12 +58,6 @@ The repository currently includes:
 
 but not trained model weights.
 
-
-## Usage
-```bash
-pip install -r requirements.txt
-streamlit run app/home.py
-```
 
 ---
 
