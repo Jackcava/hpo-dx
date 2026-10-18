@@ -92,8 +92,9 @@ HPO website: https://hpo.jax.org
 
 ## References
 
-*(under review)* Cavalca G & Matucci-Cerinic C, et al.
-Machine learning-based validation of Human Phenotype Ontology (HPO) terms for systemic autoinflammatory diseases using the Eurofever Registry: the ODINO project.
+Cavalca G, Matucci-Cerinic C, et al. (2026). Machine learning–based validation of Human Phenotype Ontology (HPO) terms for systemic autoinflammatory diseases using the Eurofever Registry: the ODINO project. *Frontiers in Immunology*.
+
+https://doi.org/10.3389/fimmu.2026.1936099 
 
 ---
 
